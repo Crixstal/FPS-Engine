@@ -267,14 +267,14 @@
     <ClCompile Include="src\Gameplay\camera_movement.cpp">
       <Filter>Fichiers sources\Gameplay\Player</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gameplay\enemies_state.cpp">
-      <Filter>Fichiers sources\Gameplay\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Gameplay\enemies_movement.cpp">
-      <Filter>Fichiers sources\Gameplay\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="src\Resources\recipe.cpp">
       <Filter>Fichiers sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gameplay\enemy_movement.cpp">
+      <Filter>Fichiers sources\Gameplay\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gameplay\enemy_state.cpp">
+      <Filter>Fichiers sources\Gameplay\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

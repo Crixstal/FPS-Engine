@@ -189,8 +189,8 @@
     <ClCompile Include="src\Engine\Render\sprite_renderer.cpp" />
     <ClCompile Include="src\Engine\UI\button.cpp" />
     <ClCompile Include="src\Gameplay\camera_movement.cpp" />
-    <ClCompile Include="src\Gameplay\enemies_movement.cpp" />
-    <ClCompile Include="src\Gameplay\enemies_state.cpp" />
+    <ClCompile Include="src\Gameplay\enemy_movement.cpp" />
+    <ClCompile Include="src\Gameplay\enemy_state.cpp" />
     <ClCompile Include="src\Gameplay\game_master.cpp" />
     <ClCompile Include="src\Gameplay\main_menu.cpp" />
     <ClCompile Include="src\Gameplay\player_movement.cpp" />

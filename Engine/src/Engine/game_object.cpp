@@ -152,9 +152,9 @@ namespace Engine
 		else if (comp == "PLAYERSTATE")
 			Gameplay::PlayerState::parseComponent(*this, goStream);
 		else if (comp == "ENEMYMOVEMENT")
-			Gameplay::EnemyMovement::parseComponent(*this, iss);
+			Gameplay::EnemyMovement::parseComponent(*this, goStream);
 		else if (comp == "ENEMYSTATE")
-			Gameplay::EnemyState::parseComponent(*this, iss);
+			Gameplay::EnemyState::parseComponent(*this, goStream);
 		else if (comp == "MAINMENU")
 			Gameplay::MainMenu::parseComponent(*this, goStream);
 		else if (comp == "GAMEMASTER")
