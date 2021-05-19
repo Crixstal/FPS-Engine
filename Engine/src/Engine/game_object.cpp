@@ -12,8 +12,10 @@
 #include "camera_movement.hpp"
 #include "sphere_collider.hpp"
 #include "model_renderer.hpp"
+#include "enemy_movement.hpp"
 #include "player_state.hpp"
 #include "box_collider.hpp"
+#include "enemy_state.hpp"
 #include "game_master.hpp"
 #include "main_menu.hpp"
 #include "component.hpp"
@@ -149,6 +151,10 @@ namespace Engine
 			Gameplay::PlayerMovement::parseComponent(*this, goStream);
 		else if (comp == "PLAYERSTATE")
 			Gameplay::PlayerState::parseComponent(*this, goStream);
+		else if (comp == "ENEMYMOVEMENT")
+			Gameplay::EnemyMovement::parseComponent(*this, iss);
+		else if (comp == "ENEMYSTATE")
+			Gameplay::EnemyState::parseComponent(*this, iss);
 		else if (comp == "MAINMENU")
 			Gameplay::MainMenu::parseComponent(*this, goStream);
 		else if (comp == "GAMEMASTER")
