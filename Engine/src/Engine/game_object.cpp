@@ -205,14 +205,17 @@ namespace Engine
 			UI::Button::parseComponent(*this, goStream);
 	}
 
-	void GameObject::parseRecipe(std::istringstream& recipeStream, std::string& parentName)
+	void GameObject::parseRecipe(const std::string& filePath, std::string& parentName)
 	{
+		std::istringstream recipeStream(Resources::ResourcesManager::loadRecipe(filePath)->recipe);
+
 		std::string line;
-		std::string type;
 
 		while (std::getline(recipeStream, line))
 		{
 			std::istringstream iss(line);
+
+			std::string type;
 			iss >> type;
 
 			if (type == "COMP")
@@ -223,11 +226,11 @@ namespace Engine
 	void GameObject::parse(std::istream& scnStream, std::string& parentName)
 	{
 		std::string line;
-		std::string type;
 
 		while (std::getline(scnStream, line))
 		{
 			std::istringstream iss(line);
+			std::string type;
 			iss >> type;
 
 			if (type == "COMP")
@@ -236,8 +239,7 @@ namespace Engine
 			{
 				std::string filePath;
 				iss >> filePath;
-				std::istringstream recipeStream(Resources::ResourcesManager::loadRecipe(filePath)->recipe);
-				parseRecipe(recipeStream, parentName);
+				parseRecipe(filePath, parentName);
 			}
 			else if (type == "endGO")
 				break;
