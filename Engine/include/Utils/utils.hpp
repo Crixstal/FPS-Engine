@@ -47,6 +47,7 @@ namespace Utils
     std::string quatToStringParsing(const Core::Maths::quat& toWrite);
 
     void selectImGuiString(std::string selectableLabel, std::string& strRef);
+<<<<<<< HEAD
 
     template <typename T>
     T sign(T value)
@@ -105,3 +106,6 @@ namespace Utils
     void selectImGuiString(std::string selectableLabel, std::string& strRef);
 }
 >>>>>>> bbba777bb2ca201e3c4091a981e8afc17bdd1d84
+=======
+}
+>>>>>>> 2353d594957db045cb61eb4f8ce63cfcdeca7a02

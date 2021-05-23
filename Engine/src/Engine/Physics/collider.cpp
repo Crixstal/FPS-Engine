@@ -37,6 +37,9 @@ namespace Physics
 		if (isInVector)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2353d594957db045cb61eb4f8ce63cfcdeca7a02
 			//Core::Debug::Log::info("Normal : " + Utils::vecToStringDebug(collision.normal));
 
 =======
@@ -55,6 +58,9 @@ namespace Physics
 		if (hasHit)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2353d594957db045cb61eb4f8ce63cfcdeca7a02
 			//Core::Debug::Log::info("Normal : " + Utils::vecToStringDebug(collision.normal));
 
 =======
