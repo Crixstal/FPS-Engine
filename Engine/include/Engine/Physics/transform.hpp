@@ -19,9 +19,9 @@ namespace Physics
 	public:
 		Transform(Engine::GameObject& gameObject);
 
-		Core::Maths::vec3 m_position = Core::Maths::vec3(0.f, 0.f, 0.f);
-		Core::Maths::vec3 m_rotation = Core::Maths::vec3(0.f, 0.f, 0.f);
-		Core::Maths::vec3 m_scale = Core::Maths::vec3(1.f, 1.f, 1.f);
+		Core::Maths::vec3 m_position	= Core::Maths::vec3(0.f, 0.f, 0.f);
+		Core::Maths::vec3 m_rotation	= Core::Maths::vec3(0.f, 0.f, 0.f);
+		Core::Maths::vec3 m_scale		= Core::Maths::vec3(1.f, 1.f, 1.f);
 
 		Engine::GameObject& getGOParent();
 		Engine::GameObject& getGOChild(int childIndex);
@@ -29,13 +29,6 @@ namespace Physics
 		Core::Maths::mat4 getModel() const;
 		Core::Maths::mat4 getGlobalModel() const;
 		Core::Maths::mat4 getParentModel() const;
-
-		Core::Maths::vec3 getGlobalRotation() const;
-		Core::Maths::vec3 getGlobalPosition() const;
-		Core::Maths::vec3 getParentRotation() const;
-		Core::Maths::vec3 getParentPosition() const;
-
-		Core::Maths::vec3 getForward() const;
 
 		bool hasParent();
 		bool hasChild();

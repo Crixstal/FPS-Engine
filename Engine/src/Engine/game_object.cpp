@@ -124,6 +124,75 @@ namespace Engine
 
 		for (auto& component : m_components)
 			component->drawImGui();
+
+		static const char* curComboLabel = "None";
+		const char* items[] = { "SPRITE_RENDERER", "SPHERE_COLLIDER", "MODEL_RENDERER", "BOX_COLLIDER", "RIGIDBODY", "TRANSFORM", "SKYBOX", "BUTTON", "CAMERA", "LIGHT" };
+
+		if (ImGui::BeginCombo("Add component", curComboLabel))
+		{
+			for (int i = 0; i < IM_ARRAYSIZE(items); i++)
+			{
+				if (ImGui::Selectable(items[i]))
+				{
+					curComboLabel = items[i];
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		ImGui::Text("\n");
+	}
+
+	void GameObject::drawImGuiHierarchy(std::string& curDrawGoName, bool isDrawFromScene)
+	{
+		ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
+
+		bool drawSelectable = true;
+
+		std::shared_ptr<Physics::Transform> transform;
+		if (tryGetComponent<Physics::Transform>(transform))
+		{
+			bool canDraw = !(transform->hasParent() && isDrawFromScene);
+			bool drawTree = transform->hasChild() && canDraw;
+			drawSelectable = !transform->hasChild() && canDraw;
+
+			if (drawTree)
+			{
+				int i = 0;
+				static int selection_mask = (1 << 2);
+				int node_clicked = -1;
+
+				ImGuiTreeNodeFlags node_flags = base_flags;
+				const bool is_selected = (selection_mask & (1 << i)) != 0;
+				if (is_selected)
+					node_flags |= ImGuiTreeNodeFlags_Selected;
+
+				bool node_open = ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, m_name.c_str(), i);
+
+				if (ImGui::IsItemClicked())
+					curDrawGoName = m_name;
+
+				if (m_name.compare(curDrawGoName) == 0)
+				{
+					ImGui::SameLine();
+					ImGui::Text("   Selected");
+				}
+
+				if (node_open)
+				{
+					for (int index = 0; index < transform->getChildrenCount(); index++)
+					{
+						transform->getGOChild(index).drawImGuiHierarchy(curDrawGoName, false);
+					}
+
+					ImGui::TreePop();
+				}
+			}
+		}
+
+		if (drawSelectable)
+			Utils::selectImGuiString(m_name, curDrawGoName);
 	}
 
 	void GameObject::drawImGuiHierarchy(std::string& curDrawGoName, bool isDrawFromScene)
