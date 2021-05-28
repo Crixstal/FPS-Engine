@@ -115,14 +115,12 @@ namespace Resources
 
 		scnStream.close();
 
-		save();
-
 		//Resources::ResourcesManager::clearResources();
 	}
 
 	void Scene::save()
 	{
-		std::ofstream scnFlux("resources/scenes/test.scn");
+		std::ofstream scnFlux("resources/scenes/savedScene.scn");
 
 		if (!scnFlux)
 		{
