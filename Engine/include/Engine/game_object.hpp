@@ -106,6 +106,7 @@ namespace Engine
 		void parse(std::istream& scnStream, std::string& parentName);
 
 		void destroy() override;
+		void onDestroy() override;
 	};
 
 }
