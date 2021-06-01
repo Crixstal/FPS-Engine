@@ -217,6 +217,7 @@
       <Filter>Fichiers sources\Resources</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Input\inputs_manager.cpp">
+<<<<<<< HEAD
       <Filter>Fichiers sources\Core\Input</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Input\key_axis.cpp">
@@ -237,6 +238,28 @@
     <ClCompile Include="src\Engine\LowRenderer\collider_renderer.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
     </ClCompile>
+=======
+      <Filter>Fichiers sources\Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Input\key_axis.cpp">
+      <Filter>Fichiers sources\Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Input\key_button.cpp">
+      <Filter>Fichiers sources\Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Input\mouse_button.cpp">
+      <Filter>Fichiers sources\Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Physics\shape.cpp">
+      <Filter>Fichiers sources\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\camera.cpp">
+      <Filter>Fichiers sources\Engine\LowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\collider_renderer.cpp">
+      <Filter>Fichiers sources\Engine\LowRenderer</Filter>
+    </ClCompile>
+>>>>>>> scene
     <ClCompile Include="src\Engine\LowRenderer\light.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
     </ClCompile>
@@ -251,6 +274,7 @@
     </ClCompile>
     <ClCompile Include="src\Engine\LowRenderer\renderer.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
+<<<<<<< HEAD
     </ClCompile>
     <ClCompile Include="src\Engine\LowRenderer\sky_box.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
@@ -258,6 +282,15 @@
     <ClCompile Include="src\Engine\LowRenderer\sprite_renderer.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
     </ClCompile>
+=======
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\sky_box.cpp">
+      <Filter>Fichiers sources\Engine\LowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\sprite_renderer.cpp">
+      <Filter>Fichiers sources\Engine\LowRenderer</Filter>
+    </ClCompile>
+>>>>>>> scene
     <ClCompile Include="src\Engine\LowRenderer\color.cpp">
       <Filter>Fichiers sources\Engine\LowRenderer</Filter>
     </ClCompile>
@@ -302,7 +335,11 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Gameplay\Player\player_shooting.cpp">
+<<<<<<< HEAD
       <Filter>Fichiers sources\Game\Gameplay\Player</Filter>
+=======
+      <Filter>Fichiers sources</Filter>
+>>>>>>> scene
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -512,7 +549,11 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Game\Gameplay\Player\player_shooting.hpp">
+<<<<<<< HEAD
       <Filter>Fichiers d%27en-tête\Game\Gameplay\Player</Filter>
+=======
+      <Filter>Fichiers d%27en-tête</Filter>
+>>>>>>> scene
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
