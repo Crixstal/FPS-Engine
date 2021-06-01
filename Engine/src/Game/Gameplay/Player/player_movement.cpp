@@ -1,19 +1,12 @@
 #include "player_movement.hpp"
 
-#include "imgui.h"
-
-#include "inputs_manager.hpp"
-#include "graph.hpp"
-#include "time.hpp"
-
 namespace Gameplay
 {
 	PlayerMovement::PlayerMovement(Engine::GameObject& gameObject)
-		: Component(gameObject, std::shared_ptr<PlayerMovement>(this))
+		: EntityMovement(gameObject, std::shared_ptr<PlayerMovement>(this))
 	{
-		m_rigidbody = requireComponent<Physics::Rigidbody>();
 		m_playerState = requireComponent<Gameplay::PlayerState>();
-		m_transform = requireComponent<Physics::Transform>();
+		m_transform = m_playerState->transform;
 	}
 
 	void PlayerMovement::start()
@@ -53,6 +46,11 @@ namespace Gameplay
 	std::string PlayerMovement::toString() const
 	{
 		return "COMP PLAYERMOVEMENT " + std::to_string(m_speed) + " " + std::to_string(m_jumpForce);
+	}
+
+	void PlayerMovement::onTriggerEnter(Physics::Collider* collider)
+	{
+		int test = 0;
 	}
 
 	void PlayerMovement::parseComponent(Engine::GameObject& gameObject, std::istringstream& iss)

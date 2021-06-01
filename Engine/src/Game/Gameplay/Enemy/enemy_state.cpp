@@ -1,48 +1,33 @@
 #include "enemy_state.hpp"
 
-#include <algorithm> 
 #include <imgui.h>
+#include <algorithm>
 
-#include "button.hpp"
+#include "rigidbody.hpp"
+#include "maths.hpp"
+
+#include "inputs_manager.hpp"
 #include "graph.hpp"
 
 namespace Gameplay
 {
 	EnemyState::EnemyState(Engine::GameObject& gameObject)
-		: Component(gameObject, std::shared_ptr<EnemyState>(this)) 
+		: EntityState(gameObject, std::shared_ptr<EnemyState>(this)) 
 	{
-		transform = requireComponent<Physics::Transform>();
-		playerTransform = Core::Engine::Graph::findGameObjectWithName("Player")->getComponent<Physics::Transform>();
-	}
-
-	void EnemyState::start()
-	{
-
-	}
-
-	void EnemyState::update()
-	{
-		direction = (playerTransform->m_position - transform->m_position).normalize();
-
-		horizontalMove =  direction.x;
-		forwardMove = direction.z;
 	}
 
 	void EnemyState::drawImGui()
 	{
 		if (ImGui::TreeNode("EnemyState"))
 		{
-			std::string horizontalStr = "Horizontal movement : " + std::to_string(horizontalMove);
-			ImGui::Text(horizontalStr.c_str());
-			std::string forwardStr = "Forward movement : " + std::to_string(forwardMove);
-			ImGui::Text(forwardStr.c_str());
+			Component::drawImGui();
 			ImGui::TreePop();
 		}
 	}
 
 	void EnemyState::onCollisionEnter(const Physics::Collision& collision)
 	{
-		if (collision.normal.y <= 0.f)
+		if (collision.hit.normal.y <= 0.f)
 			return;
 
 		colliderCount++;
@@ -59,7 +44,8 @@ namespace Gameplay
 
 	std::string EnemyState::toString() const
 	{
-		return "COMP ENEMYSTATE " + std::to_string(isIdle) + " " + std::to_string(isWalking)
+		return "COMP ENEMYSTATE " + std::to_string(isIdle) 
+			+ " " + std::to_string(isWalking)
 			+ " " + std::to_string(isFalling)
 			+ " " + std::to_string(isGrounded);
 	}

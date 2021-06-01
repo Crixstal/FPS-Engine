@@ -8,6 +8,7 @@
 #include "resources_manager.hpp"
 
 #include "sprite_renderer.hpp"
+#include "player_shooting.hpp"
 #include "player_movement.hpp"
 #include "camera_movement.hpp"
 #include "sphere_collider.hpp"
@@ -17,6 +18,7 @@
 #include "box_collider.hpp"
 #include "enemy_state.hpp"
 #include "game_master.hpp"
+#include "enemy_life.hpp"
 #include "main_menu.hpp"
 #include "component.hpp"
 #include "transform.hpp"
@@ -39,9 +41,6 @@ namespace Engine
 	{
 	}
 
-
-
-
 	void GameObject::awakeComponents()
 	{
 		// Call the awake function for all the components
@@ -49,18 +48,14 @@ namespace Engine
 			component->awake();
 	}
 
-	void GameObject::startComponents()
-	{
-		// Call the start function for all the components
-		for (std::shared_ptr<Component>& component : m_components)
-			component->start();
-	}
-
 	void GameObject::updateComponents()
 	{
 		// Call the update function for all the components
 		for (std::shared_ptr<Component>& component : m_components)
 		{
+			if (!component->isActive())
+				continue;
+
 			if (!component->hasStarted)
 			{
 				component->start();
@@ -74,17 +69,21 @@ namespace Engine
 	void GameObject::fixedUpdateComponents()
 	{
 		for (std::shared_ptr<Component>& component : m_components)
-			component->fixedUpdate();
+		{
+			if (component->isActive())
+				component->fixedUpdate();
+		}
+			
 	}
 
 	void GameObject::lateUpdateComponents()
 	{
 		for (std::shared_ptr<Component>& component : m_components)
-			component->lateUpdate();
+		{
+			if (component->isActive())
+				component->lateUpdate();
+		}
 	}
-
-
-
 
 	void GameObject::callCollisionEnter(const Physics::Collision& collision)
 	{
@@ -104,8 +103,23 @@ namespace Engine
 			component->onCollisionExit(collision);
 	}
 
+	void GameObject::callTriggerEnter(Physics::Collider* collider)
+	{
+		for (std::shared_ptr<Component>& component : m_components)
+			component->onTriggerEnter(collider);
+	}
 
+	void GameObject::callTriggerStay(Physics::Collider* collider)
+	{
+		for (std::shared_ptr<Component>& component : m_components)
+			component->onTriggerStay(collider);
+	}
 
+	void GameObject::callTriggerExit(Physics::Collider* collider)
+	{
+		for (std::shared_ptr<Component>& component : m_components)
+			component->onTriggerExit(collider);
+	}
 
 	std::string GameObject::toString()
 	{
@@ -120,6 +134,14 @@ namespace Engine
 	void GameObject::drawImGuiInspector()
 	{
 		ImGui::InputText(": Name", &m_name[0], 50);
+
+		bool activated = isActive();
+
+		if (ImGui::Checkbox("Enable", &activated))
+			setActive(activated);
+
+		if (ImGui::Button("Destroy"))
+			destroy();
 
 		for (auto& component : m_components)
 			component->drawImGui();
@@ -203,10 +225,14 @@ namespace Engine
 			Gameplay::PlayerMovement::parseComponent(*this, goStream);
 		else if (comp == "PLAYERSTATE")
 			Gameplay::PlayerState::parseComponent(*this, goStream);
+		else if (comp == "PLAYERSHOOTING")
+			Gameplay::PlayerShooting::parseComponent(*this, goStream);
 		else if (comp == "ENEMYMOVEMENT")
 			Gameplay::EnemyMovement::parseComponent(*this, goStream);
 		else if (comp == "ENEMYSTATE")
 			Gameplay::EnemyState::parseComponent(*this, goStream);
+		else if (comp == "ENEMYLIFE")
+			Gameplay::EnemyLife::parseComponent(*this, goStream);
 		else if (comp == "MAINMENU")
 			Gameplay::MainMenu::parseComponent(*this, goStream);
 		else if (comp == "GAMEMASTER")
@@ -256,5 +282,25 @@ namespace Engine
 			else if (type == "endGO")
 				break;
 		}
+	}
+
+	void GameObject::destroy()
+	{
+		std::shared_ptr<Physics::Transform> transform;
+		if (tryGetComponent<Physics::Transform>(transform))
+		{
+			for (int i = 0; i < transform->getChildrenCount(); i++)
+				transform->getGOChild(i).destroy();
+		}
+
+		for (auto& comp : m_components)
+			comp->destroy();
+
+		Core::Engine::Graph::addToDestroyQueue(this);
+	}
+
+	void GameObject::onDestroy()
+	{
+		Core::Engine::Graph::deleteGameObject(m_name);
 	}
 }
