@@ -307,11 +307,20 @@
     <ClCompile Include="src\Game\Gameplay\Player\player_shooting.cpp">
       <Filter>Fichiers sources\Game\Gameplay\Player</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\pause_screen.cpp">
-      <Filter>Fichiers sources\Game</Filter>
-    </ClCompile>
     <ClCompile Include="src\Resources\character.cpp">
       <Filter>Fichiers sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\shadow.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\shadow_map.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LowRenderer\shadow_point.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\pause_screen.cpp">
+      <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -523,9 +532,6 @@
     <ClInclude Include="include\Game\Gameplay\Player\player_shooting.hpp">
       <Filter>Fichiers d%27en-tête\Game\Gameplay\Player</Filter>
     </ClInclude>
-    <ClInclude Include="include\Game\pause_screen.hpp">
-      <Filter>Fichiers d%27en-tête\Game</Filter>
-    </ClInclude>
     <ClInclude Include="include\Resources\character.hpp">
       <Filter>Fichiers d%27en-tête\Resources</Filter>
     </ClInclude>
@@ -592,6 +598,15 @@
     <ClInclude Include="header\irrklang\irrKlang.h">
       <Filter>Fichiers d%27en-tête\headers</Filter>
     </ClInclude>
+    <ClInclude Include="include\Engine\LowRenderer\shadow.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\LowRenderer\shadow_map.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\LowRenderer\shadow_point.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Core\maths.inl">
@@ -639,5 +654,10 @@
     <None Include="resources\shaders\textShader.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
+    <None Include="resources\shaders\depthCubeShader.frag" />
+    <None Include="resources\shaders\depthCubeShader.geom" />
+    <None Include="resources\shaders\depthCubeShader.vert" />
+    <None Include="resources\shaders\depthShader.frag" />
+    <None Include="resources\shaders\depthShader.vert" />
   </ItemGroup>
 </Project>
