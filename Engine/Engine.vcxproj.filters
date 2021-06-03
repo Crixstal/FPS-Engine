@@ -112,6 +112,9 @@
     <Filter Include="Fichiers d%27en-tête\headers">
       <UniqueIdentifier>{603d1708-3b24-4c00-87b5-e36db20ea276}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Shaders\Shadow">
+      <UniqueIdentifier>{4455bf65-4fb7-4400-b6b9-5a6ee3a0aeff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -327,6 +330,9 @@
     </ClCompile>
     <ClCompile Include="src\Game\Gameplay\bullet_hole.cpp">
       <Filter>Fichiers sources\Game\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\sound_manager.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -619,6 +625,9 @@
     <ClInclude Include="include\Game\Gameplay\bullet_hole.hpp">
       <Filter>Fichiers d%27en-tête\Game\Gameplay</Filter>
     </ClInclude>
+    <ClInclude Include="include\Core\sound_manager.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Core\maths.inl">
@@ -666,10 +675,20 @@
     <None Include="resources\shaders\textShader.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="resources\shaders\depthCubeShader.frag" />
-    <None Include="resources\shaders\depthCubeShader.geom" />
-    <None Include="resources\shaders\depthCubeShader.vert" />
-    <None Include="resources\shaders\depthShader.frag" />
-    <None Include="resources\shaders\depthShader.vert" />
+    <None Include="resources\shaders\depthCubeShader.frag">
+      <Filter>Fichiers de ressources\Shaders\Shadow</Filter>
+    </None>
+    <None Include="resources\shaders\depthCubeShader.geom">
+      <Filter>Fichiers de ressources\Shaders\Shadow</Filter>
+    </None>
+    <None Include="resources\shaders\depthCubeShader.vert">
+      <Filter>Fichiers de ressources\Shaders\Shadow</Filter>
+    </None>
+    <None Include="resources\shaders\depthShader.frag">
+      <Filter>Fichiers de ressources\Shaders\Shadow</Filter>
+    </None>
+    <None Include="resources\shaders\depthShader.vert">
+      <Filter>Fichiers de ressources\Shaders\Shadow</Filter>
+    </None>
   </ItemGroup>
 </Project>

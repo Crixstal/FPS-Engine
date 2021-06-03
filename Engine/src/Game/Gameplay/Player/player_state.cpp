@@ -5,6 +5,7 @@
 
 #include "inputs_manager.hpp"
 #include "physic_manager.hpp"
+#include "sound_manager.hpp"
 
 #include "rigidbody.hpp"
 #include "maths.hpp"
@@ -19,6 +20,12 @@ namespace Gameplay
 		m_transform = requireComponent<Physics::Transform>();
 	}
 
+	void PlayerState::start()
+	{
+		Core::Engine::SoundManager::getSoundEngine()->play2D("resources/sounds/warCryPlayer.wav");
+		m_collider = getHost().getComponent<Physics::SphereCollider>();
+	}
+
 	void PlayerState::update()
 	{
 		if (Core::Input::InputManager::getButtonDown("Jump") && isGrounded)
@@ -31,7 +38,7 @@ namespace Gameplay
 	void PlayerState::fixedUpdate()
 	{
 		Physics::RaycastHit hit;
-		Physics::Ray ray(m_transform->m_position, Core::Maths::vec3(0.f, -1.f, 0.f), 1.1f);
+		Physics::Ray ray(m_transform->m_position, Core::Maths::vec3(0.f, -1.f, 0.f), m_collider->sphere.radius + 0.1f);
 		isGrounded = Physics::PhysicManager::raycast(ray, hit);
 	}
 
