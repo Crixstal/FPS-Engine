@@ -1,6 +1,9 @@
 Engine/resources/obj/**
 !Engine/resources/obj/.gitkeep
 
+Engine/resources/sounds/**
+!Engine/resources/sounds/.gitkeep
+
 Engine/resources/skyboxes/**
 !Engine/resources/skyboxes/.gitkeep
 
