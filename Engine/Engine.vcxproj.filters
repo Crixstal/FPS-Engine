@@ -342,10 +342,11 @@
     </ClCompile>
     <ClCompile Include="src\Game\Gameplay\medkit.cpp">
       <Filter>Fichiers sources\Game\Gameplay</Filter>
-    <ClCompile Include="src\Game\lose_screen.cpp">
-      <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\win_screen.cpp">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\lose_screen.cpp">
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -650,8 +651,9 @@
     </ClInclude>
     <ClInclude Include="include\Game\Gameplay\medkit.hpp">
       <Filter>Fichiers d%27en-tête\Game\Gameplay</Filter>
+    </ClInclude>
     <ClInclude Include="include\Game\pause_screen.hpp">
-      <Filter>Fichiers d%27en-tête\Game</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Game\lose_screen.hpp">
       <Filter>Fichiers d%27en-tête\Game</Filter>
