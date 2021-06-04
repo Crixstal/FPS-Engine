@@ -340,6 +340,8 @@
     <ClCompile Include="src\Game\Gameplay\Player\ammo_counter.cpp">
       <Filter>Fichiers sources\Game\Gameplay\Player</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Gameplay\medkit.cpp">
+      <Filter>Fichiers sources\Game\Gameplay</Filter>
     <ClCompile Include="src\Game\lose_screen.cpp">
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
@@ -646,6 +648,8 @@
     <ClInclude Include="include\Game\Gameplay\Player\ammo_counter.hpp">
       <Filter>Fichiers d%27en-tête\Game\Gameplay\Player</Filter>
     </ClInclude>
+    <ClInclude Include="include\Game\Gameplay\medkit.hpp">
+      <Filter>Fichiers d%27en-tête\Game\Gameplay</Filter>
     <ClInclude Include="include\Game\pause_screen.hpp">
       <Filter>Fichiers d%27en-tête\Game</Filter>
     </ClInclude>
