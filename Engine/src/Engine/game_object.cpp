@@ -247,10 +247,10 @@ namespace Engine
 			Gameplay::LifeBar::parseComponent(*this, goStream);
 		else if (comp == "AMMOCOUNTER")
 			Gameplay::AmmoCounter::parseComponent(*this, goStream);
+		else if (comp == "MAINMENU")
+			Gameplay::MainMenu::parseComponent(*this, goStream);		
 		else if (comp == "PAUSESCREEN")
 			Gameplay::PauseScreen::parseComponent(*this, goStream);
-		else if (comp == "MAINMENU")
-			Gameplay::MainMenu::parseComponent(*this, goStream);
 		else if (comp == "GAMEMASTER")
 			Gameplay::GameMaster::parseComponent(*this, goStream);
 		else if (comp == "CAMERAMOVEMENT")
