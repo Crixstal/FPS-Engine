@@ -6,7 +6,17 @@ FPS made using the previous engine for the 3D Platformer.
 
 <br>
 
-# Informations
+## **Summary**
+
+- [Informations](#Informations)
+- [Controls](#Controls)
+- [Engine Features](#Engine-Features)
+- [In-Game Features](#In-Game-Features)
+- [Third-party programs and libraries](#Third-party-programs-and-libraries)
+
+<br>
+
+## Informations
 
 The build and the resources can be found in the zip file "Build+Resources" under the GOLD release.
 
@@ -19,7 +29,7 @@ in the folder x64/Release (or x64/Debug)
 
 <br>
 
-# Controls
+## Controls
 
 - **WASD/ZQSD keys** : Move foward, backward, left and right.
 - **Space** : Jump.
@@ -28,7 +38,7 @@ in the folder x64/Release (or x64/Debug)
 
 <br>
 
-# Engine Features
+## Engine Features
 
 * The Game Engine uses a powerful leak-free Component System
 * The Game Engine is formed by the Render Engine and the Physic Engine
@@ -36,7 +46,7 @@ in the folder x64/Release (or x64/Debug)
 
 <br>
 
-# In-Game Features
+## In-Game Features
 
 * The player can launch the game from the main menu
 * The player can exit the game from the main menu
@@ -47,39 +57,16 @@ in the folder x64/Release (or x64/Debug)
 
 <br>
 
-# Third-party programs and libraries
+## Third-party programs and libraries
 
-## Download links
----
+irrKlang: https://www.ambiera.com/irrklang/
 
-irrKlang
----
-https://www.ambiera.com/irrklang/
+stb: https://github.com/nothings/stb
 
-stb
----
-https://github.com/nothings/stb
+GLFW: https://www.glfw.org/
 
-GLFW
----
-https://www.glfw.org/
+Glad: https://glad.dav1d.de/
 
-Glad
----
-https://glad.dav1d.de/
-
-## References
----
-
-OpenGL:
----
-- Gives the different functions of OpenGL:
-http://docs.gl/
-- Ditto:
-https://www.khronos.org/opengl/
-
-C++:
----
-- C++ references: https://en.cppreference.com/
+<br>
 
 [Head of page](#FPS)
