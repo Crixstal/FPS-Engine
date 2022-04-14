@@ -1,6 +1,6 @@
 # **FPS**
 
-FPS made using the previous engine for the 3D Platformer.
+FPS made using a previous engine for a 3D Platformer.
 
 **/!\ This engine is not the most optimized one nor the most efficient one. It supports only .obj models, .mtl materials and a custom scene format. /!\\**
 
